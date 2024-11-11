@@ -43,7 +43,7 @@ const createNewDepartment = async (req, res) => {
 
   try {
     await knex.createNewDepartment(body)
-    res.json({
+    res.status(201).json({
       message: "CREATE new department success",
       data: body,
     })
@@ -67,7 +67,7 @@ const updateDepartment = async (req, res) => {
 
   try {
     await knex.updateDepartment(body, id)
-    res.json({
+    res.status(201).json({
       message: "UPDATE department success",
       data: {
         id: id,
