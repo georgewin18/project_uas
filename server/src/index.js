@@ -8,6 +8,7 @@ const bodyParser = require('./middleware/bodyparser')
 const employeeRoutes = require('./routes/employee')
 const departmentRoutes = require('./routes/department')
 const jobRoutes = require('./routes/job')
+const attendanceRoutes = require('./routes/attendance')
 
 app.use(express.json())
 app.use(bodyParser.urlencoded)
@@ -16,6 +17,7 @@ app.use(bodyParser.json)
 app.use('/employees', employeeRoutes)
 app.use('/departments', departmentRoutes)
 app.use('/jobs', jobRoutes)
+app.use('/attendance', attendanceRoutes)
 
 app.listen(port, () => {
   console.log(`Server running in port ${port}`)
