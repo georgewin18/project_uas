@@ -1,4 +1,3 @@
-const { update } = require('../config/database')
 const knex = require('../models/employee')
 
 const getAllEmployee = async (req, res) => {
