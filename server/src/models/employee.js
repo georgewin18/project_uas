@@ -43,7 +43,7 @@ const updateEmployee = (body, id) => {
     "job_id" : body.job_id,
     "department_id" : body.department_id,
     "salary" : body.salary,
-    "status" : body.status
+    "status" : "aktif"
   })
   return update
 }
