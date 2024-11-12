@@ -43,11 +43,11 @@ function Read() {
             </li>
             <li className="list-group-item">
               <b>Birth Date: </b>
-              {employee.birthdate}
+              {String(employee.birthdate).slice(0,10)}
             </li>
             <li className="list-group-item">
               <b>Hire Date: </b>
-              {employee.hiredate}
+              {String(employee.hiredate).slice(0,10)}
             </li>
             <li className="list-group-item">
               <b>Job ID: </b>
