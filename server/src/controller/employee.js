@@ -71,7 +71,7 @@ const createNewEmployee = async (req, res) => {
 
   if (!body.name || !body.email || !body.phone || !body.address 
       || !body.birthdate || !body.hiredate || !body.job_id 
-      || !body.department_id || !body.salary || !body.status) {
+      || !body.department_id || !body.salary) {
     res.status(400).json({
       message: "user input error"
     })
