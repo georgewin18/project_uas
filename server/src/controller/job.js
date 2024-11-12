@@ -39,6 +39,7 @@ const createNewJob = async (req, res) => {
     res.status(400).json({
       message: "user input error"
     })
+    return
   }
 
   try {
@@ -63,6 +64,7 @@ const updateJob = async (req, res) => {
     res.status(400).json({
       message: "user input error"
     })
+    return
   }
 
   try {

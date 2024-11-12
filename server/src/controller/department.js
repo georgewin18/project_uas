@@ -39,6 +39,7 @@ const createNewDepartment = async (req, res) => {
     res.status(400).json({
       message: "user input error"
     })
+    return
   }
 
   try {
@@ -63,6 +64,7 @@ const updateDepartment = async (req, res) => {
     res.status(400).json({
       message: "user input error"
     })
+    return
   }
 
   try {
