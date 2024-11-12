@@ -33,7 +33,7 @@ const createNewEmployee = (body) => {
 }
 
 const updateEmployee = (body, id) => {
-  const update = knex('employees').where('id', id).update  ({
+  const update = knex('employees').where('id', id).update({
     "name": body.name,
     "email": body.email,
     "phone" : body.phone,
