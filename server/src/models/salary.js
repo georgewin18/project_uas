@@ -19,7 +19,7 @@ const createNewSalary = (body) => {
     "salary": body.salary,
     "deduction": body.deduction,
     "allowance": body.allowance,
-    "total_salary": (body.salary - body.deduction + body.allowance)
+    "total_salary": (Number(body.salary) - Number(body.deduction) + Number(body.allowance))
   })
   return insert
 }
