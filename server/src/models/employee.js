@@ -27,7 +27,7 @@ const createNewEmployee = (body) => {
     "job_id" : body.job_id,
     "department_id" : body.department_id,
     "salary" : body.salary,
-    "status" : body.status
+    "status" : "aktif"
   })
   return insert
 }
@@ -43,7 +43,7 @@ const updateEmployee = (body, id) => {
     "job_id" : body.job_id,
     "department_id" : body.department_id,
     "salary" : body.salary,
-    "status" : "aktif"
+    "status" : body.status
   })
   return update
 }
