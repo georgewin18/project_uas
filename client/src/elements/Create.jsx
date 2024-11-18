@@ -29,53 +29,118 @@ function Create() {
   }
 
   return (
-    <div className="container vh-100 vw-100">
-      <div className="row">
-        <h3>Add Student</h3>
-        <div className="d-flex justify-content-end">
-          <Link to='/' className="btn btn-success">Home</Link>
+    <div className="container vh-100 d-flex justify-content-center align-items-center">
+      <div className="card w-50 shadow-sm">
+        <div className="card-header d-flex justify-content-between align-items-center">
+          <h3 className="mb-0">Add New Employee</h3>
+          <Link to="/" className="btn btn-success">Home</Link>
         </div>
-        <form onSubmit={handleSubmit}>
-          <div className="form-group my-3">
-            <label htmlFor="name">Name : </label>
-            <input type="text" name="name" onChange={(e) => setValues({...values, name: e.target.value})} />
-          </div>
-          <div className="form-group my-3">
-            <label htmlFor="email">Email : </label>
-            <input type="email" name="email" onChange={(e) => setValues({...values, email: e.target.value})} />
-          </div>
-          <div className="form-group my-3">
-            <label htmlFor="phone">Phone : </label>
-            <input type="text" name="phone" onChange={(e) => setValues({...values, phone: e.target.value})} />
-          </div>
-          <div className="form-group my-3">
-            <label htmlFor="address">Address : </label>
-            <input type="text" name="address" onChange={(e) => setValues({...values, address: e.target.value})} />
-          </div>
-          <div className="form-group my-3">
-            <label htmlFor="birthdate">Birth Date : </label>
-            <input type="text" name="birthdate" onChange={(e) => setValues({...values, birthdate: e.target.value})} />
-          </div>
-          <div className="form-group my-3">
-            <label htmlFor="hiredate">Hire Date : </label>
-            <input type="text" name="hiredate" onChange={(e) => setValues({...values, hiredate: e.target.value})} />
-          </div>
-          <div className="form-group my-3">
-            <label htmlFor="job_id">Job ID : </label>
-            <input type="number" name="job_id" onChange={(e) => setValues({...values, job_id: e.target.value})} />
-          </div>
-          <div className="form-group my-3">
-            <label htmlFor="department_id">Department ID : </label>
-            <input type="number" name="department_id" onChange={(e) => setValues({...values, department_id: e.target.value})} />
-          </div>
-          <div className="form-group my-3">
-            <label htmlFor="salary">Salary : </label>
-            <input type="number" name="salary" onChange={(e) => setValues({...values, salary: e.target.value})} />
-          </div>
-          <div className="form-group my-3">
-            <button type="submit" className="btn btn-success">Save</button>
-          </div>
-        </form>
+        <div className="card-body">
+          <form onSubmit={handleSubmit}>
+            <div className="form-group my-3">
+              <label htmlFor="name">Name:</label>
+              <input 
+                type="text" 
+                id="name" 
+                name="name" 
+                required
+                className="form-control"
+                onChange={(e) => setValues({ ...values, name: e.target.value })} 
+              />
+            </div>
+            <div className="form-group my-3">
+              <label htmlFor="email">Email:</label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                required
+                className="form-control"
+                onChange={(e) => setValues({ ...values, email: e.target.value })} 
+              />
+            </div>
+            <div className="form-group my-3">
+              <label htmlFor="phone">Phone:</label>
+              <input 
+                type="text" 
+                id="phone" 
+                name="phone" 
+                required
+                className="form-control"
+                onChange={(e) => setValues({ ...values, phone: e.target.value })} 
+              />
+            </div>
+            <div className="form-group my-3">
+              <label htmlFor="address">Address:</label>
+              <input 
+                type="text" 
+                id="address" 
+                name="address" 
+                required
+                className="form-control"
+                onChange={(e) => setValues({ ...values, address: e.target.value })} 
+              />
+            </div>
+            <div className="form-group my-3">
+              <label htmlFor="birthdate">Birth Date:</label>
+              <input 
+                type="date" 
+                id="birthdate" 
+                name="birthdate" 
+                required
+                className="form-control"
+                onChange={(e) => setValues({ ...values, birthdate: e.target.value })} 
+              />
+            </div>
+            <div className="form-group my-3">
+              <label htmlFor="hiredate">Hire Date:</label>
+              <input 
+                type="date" 
+                id="hiredate" 
+                name="hiredate" 
+                required
+                className="form-control"
+                onChange={(e) => setValues({ ...values, hiredate: e.target.value })} 
+              />
+            </div>
+            <div className="form-group my-3">
+              <label htmlFor="job_id">Job ID:</label>
+              <input 
+                type="number" 
+                id="job_id" 
+                name="job_id" 
+                required
+                className="form-control"
+                onChange={(e) => setValues({ ...values, job_id: e.target.value })} 
+              />
+            </div>
+            <div className="form-group my-3">
+              <label htmlFor="department_id">Department ID:</label>
+              <input 
+                type="number" 
+                id="department_id" 
+                name="department_id" 
+                required
+                className="form-control"
+                onChange={(e) => setValues({ ...values, department_id: e.target.value })} 
+              />
+            </div>
+            <div className="form-group my-3">
+              <label htmlFor="salary">Salary:</label>
+              <input 
+                type="number" 
+                id="salary" 
+                name="salary" 
+                required
+                className="form-control"
+                onChange={(e) => setValues({ ...values, salary: e.target.value })} 
+              />
+            </div>
+            <div className="form-group my-3 text-end">
+              <button type="submit" className="btn btn-success">Save</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   )
