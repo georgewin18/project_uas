@@ -12,157 +12,180 @@ function Update() {
       setData(res.data.data)
     })
     .catch((err) => console.log(err))
-  }, [id])
+  }, [id]) 
 
   const navigate = useNavigate()
   
   function handleSubmit(e) {
     e.preventDefault()
     
-    axios.patch(`/employees/${id}`, data)
+    data[0].birthdate = String(data[0].birthdate).slice(0, 10)
+    data[0].hiredate = String(data[0].hiredate).slice(0, 10)
+
+    axios.patch(`/employees/${id}`, data[0])
     .then((res) => {
       navigate('/')
       console.log(res)
     })
-    .catch((err) => console.log(err))
+    .catch((err) => {
+      console.log(err)
+      console.log(data[0])
+    })
   }
 
   return (
-    <div className="container-fluid vw-100 vh-100">
-      <h1>Employee {id}</h1>
-      <Link to="/" className="btn btn-success">Back</Link>
-      {data.map((employee) => {
-        return (
-
-          <form onSubmit={handleSubmit}>
-          <div className="form-group my-3">
-            <label htmlFor="name">Name : </label>
-            <input 
-              value={employee.name}
-              type="text" 
-              name="name" 
-              required
-              onChange={(e) => setData([
-                {...data, name: e.target.value}
-              ])} 
-              />
-          </div>
-          <div className="form-group my-3">
-            <label htmlFor="email">Email : </label>
-            <input 
-              value={employee.email}
-              type="email" 
-              name="email" 
-              required
-              onChange={(e) => setData([
-                {...data, email: e.target.value}
-              ])} 
-              />
-          </div>
-          <div className="form-group my-3">
-            <label htmlFor="phone">Phone : </label>
-            <input 
-              value={employee.phone}
-              type="text" 
-              name="phone" 
-              required
-              onChange={(e) => setData([
-                {...data, phone: e.target.value}
-              ])} 
-              />
-          </div>
-          <div className="form-group my-3">
-            <label htmlFor="address">Address : </label>
-            <input 
-              value={employee.address}
-              type="text" 
-              name="address"
-              required 
-              onChange={(e) => setData([
-                {...data, address: e.target.value}
-              ])} 
-              />
-          </div>
-          <div className="form-group my-3">
-            <label htmlFor="birthdate">Birth Date : </label>
-            <input 
-              value={String(employee.birthdate).slice(0,10)}
-              type="text" 
-              name="birthdate" 
-              required
-              onChange={(e) => setData([
-                {...data, birthdate: e.target.value}
-              ])} 
-              />
-          </div>
-          <div className="form-group my-3">
-            <label htmlFor="hiredate">Hire Date : </label>
-            <input 
-              value={String(employee.hiredate).slice(0,10)}
-              type="text" 
-              name="hiredate" 
-              required
-              onChange={(e) => setData([
-                {...data, hiredate: e.target.value}
-              ])} 
-              />
-          </div>
-          <div className="form-group my-3">
-            <label htmlFor="job_id">Job ID : </label>
-            <input 
-              value={employee.job_id}
-              type="number" 
-              name="job_id" 
-              required
-              onChange={(e) => setData([
-                {...data, job_id: e.target.value}
-              ])} 
-              />
-          </div>
-          <div className="form-group my-3">
-            <label htmlFor="department_id">Department ID : </label>
-            <input 
-              value={employee.department_id}
-              type="number" 
-              name="department_id" 
-              required
-              onChange={(e) => setData([
-                {...data, department_id: e.target.value}
-              ])} 
-              />
-          </div>
-          <div className="form-group my-3">
-            <label htmlFor="salary">Salary : </label>
-            <input 
-              value={employee.salary}
-              type="number" 
-              name="salary" 
-              required
-              onChange={(e) => setData([
-                {...data, salary: e.target.value}
-              ])} 
-              />
-          </div>
-          <div className="form-group my-3">
-            <label htmlFor="status">Status : </label>
-            <input 
-              value={employee.status}
-              type="text" 
-              name="status" 
-              required
-              onChange={(e) => setData([
-                {...data, status: e.target.value}
-              ])} 
-              />
-          </div>
-          <div className="form-group my-3">
-            <button type="submit" className="btn btn-success">Save</button>
-          </div>
-        </form>
-        )
-      })}
+    <div className="container-fluid vw-100 vh-100 d-flex justify-content-center align-items-center">
+      <div className="card shadow-lg" style={{ width: "50%", maxWidth: "600px" }}>
+        <div className="card-header d-flex justify-content-between align-items-center">
+          <h2 className="mb-0">Edit Employee {id}</h2>
+          <Link to="/" className="btn btn-success">Back</Link>
+        </div>
+        <div className="card-body">
+          {data.map((employee) => {
+            return (
+              <form onSubmit={handleSubmit}>
+                <div className="form-group my-2">
+                  <label htmlFor="name"><b>Name:</b></label>
+                  <input
+                    value={employee.name}
+                    type="text"
+                    name="name"
+                    className="form-control"
+                    required
+                    onChange={(e) =>
+                      setData([{ ...data[0], name: e.target.value }])
+                    }
+                  />
+                </div>
+                <div className="form-group my-2">
+                  <label htmlFor="email"><b>Email:</b></label>
+                  <input
+                    value={employee.email}
+                    type="email"
+                    name="email"
+                    className="form-control"
+                    required
+                    onChange={(e) =>
+                      setData([{ ...data[0], email: e.target.value }])
+                    }
+                  />
+                </div>
+                <div className="form-group my-2">
+                  <label htmlFor="phone"><b>Phone:</b></label>
+                  <input
+                    value={employee.phone}
+                    type="text"
+                    name="phone"
+                    className="form-control"
+                    required
+                    onChange={(e) =>
+                      setData([{ ...data[0], phone: e.target.value }])
+                    }
+                  />
+                </div>
+                <div className="form-group my-2">
+                  <label htmlFor="address"><b>Address:</b></label>
+                  <input
+                    value={employee.address}
+                    type="text"
+                    name="address"
+                    className="form-control"
+                    required
+                    onChange={(e) =>
+                      setData([{ ...data[0], address: e.target.value }])
+                    }
+                  />
+                </div>
+                <div className="form-group my-2">
+                  <label htmlFor="birthdate"><b>Birth Date:</b></label>
+                  <input
+                    value={String(employee.birthdate).slice(0, 10)}
+                    type="date"
+                    name="birthdate"
+                    className="form-control"
+                    required
+                    onChange={(e) =>
+                      setData([{ ...data[0], birthdate: e.target.value }])
+                    }
+                  />
+                </div>
+                <div className="form-group my-2">
+                  <label htmlFor="hiredate"><b>Hire Date:</b></label>
+                  <input
+                    value={String(employee.hiredate).slice(0, 10)}
+                    type="date"
+                    name="hiredate"
+                    className="form-control"
+                    required
+                    onChange={(e) =>
+                      setData([{ ...data[0], hiredate: e.target.value }])
+                    }
+                  />
+                </div>
+                <div className="form-group my-2">
+                  <label htmlFor="job_id"><b>Job ID:</b></label>
+                  <input
+                    value={employee.job_id}
+                    type="number"
+                    name="job_id"
+                    className="form-control"
+                    required
+                    onChange={(e) =>
+                      setData([{ ...data[0], job_id: e.target.value }])
+                    }
+                  />
+                </div>
+                <div className="form-group my-2">
+                  <label htmlFor="department_id"><b>Department ID:</b></label>
+                  <input
+                    value={employee.department_id}
+                    type="number"
+                    name="department_id"
+                    className="form-control"
+                    required
+                    onChange={(e) =>
+                      setData([{ ...data[0], department_id: e.target.value }])
+                    }
+                  />
+                </div>
+                <div className="form-group my-2">
+                  <label htmlFor="salary"><b>Salary:</b></label>
+                  <input
+                    value={employee.salary}
+                    type="number"
+                    name="salary"
+                    className="form-control"
+                    required
+                    onChange={(e) =>
+                      setData([{ ...data[0], salary: e.target.value }])
+                    }
+                  />
+                </div>
+                <div className="form-group my-2">
+                  <label htmlFor="status"><b>Status:</b></label>
+                  <input
+                    value={employee.status}
+                    type="text"
+                    name="status"
+                    className="form-control"
+                    required
+                    onChange={(e) =>
+                      setData([{ ...data[0], status: e.target.value }])
+                    }
+                  />
+                </div>
+                <div className="d-flex justify-content-end">
+                  <button type="submit" className="btn btn-success mt-3">
+                    Save
+                  </button>
+                </div>
+              </form>
+            );
+          })}
+        </div>
       </div>
-    )
+    </div>
+  )
 }
 
 export default Update
